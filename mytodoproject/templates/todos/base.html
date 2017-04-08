@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+<head>
+{% block title %}<title>My Base template file </title> {% endblock %}
+<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/styles.css">
+<script src="{% get_static_prefix %}js/jquery-1.10.2.js"></script>
+<script src="{% get_static_prefix %}js/script.js"></script>
+</head>
+<body>
+<h1>Small Todo List</h1>
+	<div id="content">
+		{% block content %}
+	
+		{% endblock %}
+	</div><!-- content -->
+</body>
+</html>

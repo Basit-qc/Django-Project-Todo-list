@@ -1,0 +1,76 @@
+
+body{font-family: sans-serif;}
+h1{
+	color:blue;
+}
+h2{}
+h3{}
+h4{}
+h5{}
+h6{}
+p{margin:0;}
+
+li{list-style:none;}
+
+.container{
+	width:800px;
+	margin:0 auto
+}
+.header{
+	background-color:#55F4F0;
+	width:790px;
+	padding:5px;
+}
+.pj_name{
+	float:left;
+	color:blue;
+	font-weight:bold;
+}
+.user_session{
+	float:right;
+}
+
+table{
+	font-size:13px;
+}
+th,td{
+	text-align:left;
+	vertical-align:top;	
+}
+
+.deletetodo{
+	color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.addtodo_heading{
+	color:blue;
+	margin-top:5px;
+	font-weight:bold;
+}
+.addtodo{
+	width:600px;
+}
+.addtodo_table{
+	background-color:#55F4F0;
+}
+.field{
+	width:100%;
+}
+.field label{
+	width:120px !important;
+}
+.field input{
+	width:540px;
+}
+.field textarea {
+	width:540px;	
+}
+
+.createtodo input{
+	width:70px !important;
+}
+/********** Misclaneous ************/
+.clear{
+	clear:both;
+}

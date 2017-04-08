@@ -1,0 +1,75 @@
+{% extends "todos/base.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="header">
+		<span class="pj_name">Todo</span> 
+		<span class="user_session">
+			{% if request.session.name %}<a href="{% url todos.views.logout_view %}">logout</a> {% endif %}  {{request.session.name}} 
+		</span>
+		<div class="clear"></div>
+	</div>
+	<p>You have total number of {{total}} todos</p>
+	<div class="todotasks">
+	<table border="1" id="todotable">
+		<tr>
+			<th>Short Description</th>
+			<th>Long Description</th>
+			<th>Url</th>
+			<th>Created</th>
+			<th>Updated</th>
+			<th>Done</th>
+			<th>Send Email reminder</th>
+			
+		</tr>
+		
+		{% for value in todo_list %}
+			{% if value.user.id == request.session.id  %}
+			{% csrf_token %}
+				<tr>
+					<td>{{value.summary}} </td>
+					<td>{{value.description}} </td>
+					<td><a href='//{{value.url_address}}' target="_blank">{{value.url_address}}</a> </td>
+					<td>{{value.created_date}} </td>
+					<td>{{value.modified_date}} </td>
+					<td><span class="deletetodo">Done</span></td>
+					<td><a href="#" class="sendemail">Email</a></td>
+					 
+				</tr>
+			{% endif %}
+		{% endfor %}
+		
+	</table>
+	</div><!-- todotasks -->
+	<div class="clear"></div>
+	<div class="addtodo">
+		<div class="addtodo_heading">
+			Create New Todo?
+		</div>
+		<form method="Post" action="/addtodo/" class="addtodo_form">
+			{% csrf_token %}
+			<table border="1" class="addtodo_table">
+				<tr class="field">
+					<td>Summary</td>
+					<td><input type="text" name="summary"/></td>
+				</tr>
+				<tr class="field">
+					<td>Description</td>
+					<td><textarea rows="5" cols="20" name="description"></textarea></td>
+				</tr>
+				<tr class="field">
+					<td>Url</td>
+					<td><input type="text" name="url"/></td>
+				</tr>
+				<tr class="field">
+					<td></td>
+					<td></td>
+					<td><div class="createtodo"><input type="submit" name="submitbtn" value="Create"/></div></td>
+				</tr>
+			</table>
+			<div class="clear"></div>
+		</form>
+	</div><!-- addtodo -->
+	
+</div><!-- container -->
+{% endblock %}
